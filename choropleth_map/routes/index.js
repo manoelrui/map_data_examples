@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var us_boroughs = require('../public/us-states.json');
+  res.render('index', { title: 'USA Choropleth Map', boroughs: us_boroughs });
 });
 
 module.exports = router;

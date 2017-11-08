@@ -2,7 +2,7 @@
 <html>
   <head>
 
-      <title>A Leaflet map!</title>
+      <title><%- title %></title>
       <meta charset="utf-8">
 
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
@@ -29,11 +29,15 @@
 
 
       <script>
-          var map = L.map('mapid').setView([-3.732, -38.525], 13);
+          var statesData = <%- JSON.stringify(boroughs) %>
+
+          var map = L.map('mapid').setView([37.8, -96], 4);
 
           L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
               attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(map);
+
+          L.geoJson(statesData).addTo(map);
 
       </script>
 
